@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import Button from './Button'
 import Task from './Task'
 import { useState } from "react"
-
+import AddTask from './AddTask'
 
 const Main = () => {
     const [tasks, setTasks] = useState(
@@ -36,14 +36,16 @@ const Main = () => {
 
         //toggle reminder
         const toggleReminder = (id) => {
-            console.log("hello", id)
+            setTasks(tasks.map((task)=> task.id? {...task, reminder: !task.reminder}: task))
         }
 
     
     return (
         <main style={mainStyle}>
             <Button/>
+            <AddTask/>
             {tasks.length >0 ?<Task tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>:'No tasks added'}
+            
         </main>
     )
 }
