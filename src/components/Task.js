@@ -1,5 +1,4 @@
 import SingleTask from "./SingleTask"
-import PropTypes from 'prop-types'
 
 const Task = ({ tasks, onDelete, onToggle }) => {
    
